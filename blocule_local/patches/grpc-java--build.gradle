@@ -1,0 +1,55 @@
+--- ../deps/grpc-java/compiler/build.gradle	2018-05-25 21:31:44.425182173 -0700
++++ ../deps/grpc-java/compiler/build.gradle.newpi	2018-05-25 22:01:45.451866127 -0700
+@@ -58,6 +58,9 @@
+       }
+     }
+     gcc(Gcc) {
++      target("linux_arm-v7"){
++	cppCompiler.executable = "/usr/bin/gcc"
++      }
+       target("ppcle_64")
+       target("aarch_64")
+     }
+@@ -72,6 +75,10 @@
+     x86_64 {
+       architecture "x86_64"
+     }
++   'linux_arm-v7' {
++      architecture "arm32"
++      operatingSystem "linux"
++    }
+     ppcle_64 {
+       architecture "ppcle_64"
+     }
+@@ -82,7 +89,7 @@
+ 
+   components {
+     java_plugin(NativeExecutableSpec) {
+-      if (arch in ['x86_32', 'x86_64', 'ppcle_64', 'aarch_64']) {
++      if (arch in ['x86_32', 'x86_64', 'arm32', 'ppcle_64', 'aarch_64']) {
+         // If arch is not within the defined platforms, we do not specify the
+         // targetPlatform so that Gradle will choose what is appropriate.
+         targetPlatform arch
+@@ -174,12 +181,18 @@
+   options.compilerArgs = compileTestJava.options.compilerArgs
+ }
+ 
++def USE_CUSTOM_PROTOC = 1
+ protobuf {
+   protoc {
+-    if (project.hasProperty('protoc')) {
+-      path = project.protoc
+-    } else {
+-      artifact = "com.google.protobuf:protoc:${protocVersion}"
++    if(USE_CUSTOM_PROTOC){
++	path = '/usr/bin/protoc'
++    }
++    else {	 
++    	 if (project.hasProperty('protoc')) {
++      	    path = project.protoc
++    	 } else {
++      	 artifact = "com.google.protobuf:protoc:${protocVersion}"
++    	 }
+     }
+   }
+   plugins {
