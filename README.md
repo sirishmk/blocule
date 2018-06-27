@@ -37,26 +37,11 @@ Develop blockchain applications for embedded devices.
 * ``` cd blocule ```
 * ``` make all ``` # This will take a while
 
-## Quick way to generate a Wallet file
-* Open the build.gradle in the trx-wallet folder and make the following changes
-* Find ``` main = 'org.tron.emb.EmbClientApplication' ``` and Replace with ``` main = 'org.tron.walletcli.TestClient' ```
-* Now import your wallet or create a new one. This will generate a ** Wallet ** file, save a copy of this. 
-
-
-## Running the local wallet server
-You may have to update the ~/blocule/trx-wallet/src/main/resources/config.conf with a valid node IP (https://github.com/tronprotocol/wallet-cli/blob/221a1673894e1fbc22c4f6f9ad78bae66a7d136d/src/test/resources/City.txt)
-* Copy the ** Wallet ** file to ``` ~/blocule/trx-wallet/build/libs/ ```
-* ``` cd ~/blocule/trx-wallet/build/libs/; java -jar  wallet-1.0-SNAPSHOT.jar ```
-
 ## Run the LCD wallet interface
 * Open ``` ~/blocule/LCD/tron_trnx.py ``` and add the wallet address, wallet password and the toaddress (This will be replaced in the future)
-* ``` cd ~/blocule/LCD; make run_disp ```
+* ``` cd ~/blocule/; make run_disp ```
 
 You can add the wallet server and the LCD interface script to your initialization.
 Download more bitmap fonts from here - https://www.dafont.com/bitmap.php
-
-## Known issues
-* The send coin does not seem to work recently due to high bandwidth error.
-* The wallet server is slow and a direct grpc python client is needed to speed up the server bootup.
 
 DISCLAIMER: This project has nothing to do with my day job. This project was developed during my free time with my resources and is entirely free for use.
