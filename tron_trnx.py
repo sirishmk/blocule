@@ -6,7 +6,6 @@ class tron_trnx():
     def __init__(self):
         self.url='https://api.tronscan.org/api'
         self.Address = "27TX3L8SKbL2QQwPVsQMsJy9xmVYToRRDW1"
-        #self.ToAddress = "27gfsEwQNwb5Foy5CjcCt2QgsgNxvW8jVPA"
         self.ToAddress = "27YzKnFvyuVu1K6vTig4s2urQRuCSdKu83G"
         self.Password = "p4m8K7EAJKNbP2ewrYbqzYmduLJaaTc4"
 

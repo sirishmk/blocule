@@ -30,7 +30,6 @@ Develop blockchain applications for embedded devices.
 ## Install Python packages for OLED Bonnet
 * https://learn.adafruit.com/adafruit-128x64-oled-bonnet-for-raspberry-pi/usage
 
-
 ## Clone Blocule and Compile
 * ``` cd ~/ ```
 * ``` git clone https://github.com/sirishmk/blocule.git ```
@@ -41,7 +40,11 @@ Develop blockchain applications for embedded devices.
 * Open ``` ~/blocule/LCD/tron_trnx.py ``` and add the wallet address, wallet password and the toaddress (This will be replaced in the future)
 * ``` cd ~/blocule/; make run_disp ```
 
+## Tron transactions and checking balance
+* The current code uses the API from https://api.tronscan.org/api
+
 You can add the wallet server and the LCD interface script to your initialization.
 Download more bitmap fonts from here - https://www.dafont.com/bitmap.php
+
 
 DISCLAIMER: This project has nothing to do with my day job. This project was developed during my free time with my resources and is entirely free for use.
